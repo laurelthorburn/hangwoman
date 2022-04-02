@@ -56,3 +56,8 @@
   color: #eeeeee;
   box-shadow: 0 6px #9e9e9e;
 }
+
+.Hangman--Restart {
+  width: max-content !important;
+  background-color: aqua;
+}

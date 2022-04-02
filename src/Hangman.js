@@ -20,6 +20,7 @@ class Hangman extends Component {
     super(props);
     this.state = { nWrong: 0, guessed: new Set(), answer: randomWord() };
     this.handleGuess = this.handleGuess.bind(this);
+    this.handleRestart = this.handleRestart.bind(this);
   }
   /** guessedWord: show current-state of word:
     if guessed letters are {a,p,e}, show "app_e" for "apple"
@@ -55,6 +56,12 @@ class Hangman extends Component {
       </button>
     ));
   }
+  /** restart: restart the game without refreshing the page */
+  // handleRestart(){
+  //   console.log("You clicked restart")
+  //   this.setState({nWrong: 0});
+  //   this.generateButtons();
+  // } 
 
   /** render: render game */
   render() {
@@ -65,6 +72,7 @@ class Hangman extends Component {
         <img src={this.props.images[this.state.nWrong]} alt={`${this.state.nWrong}/${this.props.maxWrong} wrong guesses`} />
         <p className='Hangman-word'>{this.guessedWord()}</p>
         { this.state.nWrong < this.props.maxWrong && <p className='Hangman-btns'>{this.generateButtons()}</p>}
+        <button className="Hangman--Restart" onClick={this.handleRestart}>Restart</button>
       </div>
     );
   }
